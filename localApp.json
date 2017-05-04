@@ -1,0 +1,71 @@
+{
+    "head": {
+        "title": "WebCMS"
+    },
+    "header": {
+        "type": "div",
+        "contents": [
+            {
+                "type": "h1",
+                "text": "WebCMS",
+                "style": [
+                    "color: blue;"
+                ]
+            }
+        ],
+        "style": [
+            "border-style: solid;",
+            "border-width: 1px",
+            "border-color: red",
+            "width: 100%;"
+        ]
+    },
+    "main": {
+        "type": "div",
+        "contents": [
+            {
+                "type": "ul",
+                "contents": [
+                    {
+                        "type": "li",
+                        "text": "1"
+                    },
+                    {
+                        "type": "li",
+                        "text": "2"
+                    },
+                    {
+                        "type": "li",
+                        "text": "3"
+                    }
+                ]
+            }
+        ],
+        "style": [
+            "width: 100%;"
+        ]
+    },
+    "footer": {
+        "type": "div",
+        "contents": [
+            {
+                "type": "hr"
+            },
+            {
+                "type": "p",
+                "text": "Zac McChesney 2017",
+                "class": "footerText"
+            },
+            {
+                "type": "script",
+                "text": "console.log('Footer loaded');"
+            }
+        ],
+        "style": [
+            "position: absolute;",
+            "bottom: 0;",
+            "width: 100%;",
+            "height: 60px;"
+        ]
+    }
+}

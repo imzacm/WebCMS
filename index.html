@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <title>ZTerm</title>
+    <script>
+        if (typeof module === 'object') {
+            window.module = module;
+            module = undefined;
+        }
+    </script>
+    <script src="libs/jquery-1.4.4.js"></script>
+    <script>
+        if (window.module) {
+            module = window.module;
+        }
+        var elementCount = 0;
+
+        function addElement (child, parent) {
+            if (!child.type) return;
+            elementCount++;
+            console.log('child = ' + JSON.stringify(child));
+            console.log('element count = ' + elementCount);
+
+            if (child.style) {
+                var style = '';
+                child.style.forEach(function(css) {
+                    style += css;
+                });
+                child.style = style;
+            }
+
+            var childElement = '<' + child.type + ' id="' + elementCount + '"';
+            if (child.style) childElement += ' style="' + style + '"';
+            childElement += '>';
+            if (child.text) childElement += child.text;
+            childElement += '</' + child.type + '>';
+            
+            $(parent).append(childElement);
+
+            var parentId = $('#' + elementCount);
+            if (child.contents) child.contents.forEach (function(element) {
+                addElement(element, parentId);
+            });
+        }
+    </script>
+  </head>
+  <body>
+        <script>
+            $(function() {
+                $.get('http://localhost:3000/CMS', (data) => {
+                    console.log(JSON.stringify(data));
+                    if (data) {
+                        if (data.head && data.head.title) {
+                            document.title = data.head.title;
+                        }
+                        if (data.header) {
+                            addElement(data.header, document.body);
+                        }
+                        if (data.main) {
+                            addElement(data.main, document.body);
+                        }
+                        if (data.footer) {
+                            addElement(data.footer, document.body);
+                        }
+                    }
+                });
+            });
+        </script>
+  </body>
+</html>

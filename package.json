@@ -1,0 +1,21 @@
+{
+  "name": "WebCMS",
+  "version": "1.0.0",
+  "description": "WebCMS",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm install && ./node_modules/.bin/electron main.js dev",
+    "start": "npm install && ./node_modules/.bin/electron main.js",
+    "dev-win": "npm install && .\\node_modules\\electron\\dist\\electron.exe main.js dev",
+    "win": "npm install && .\\node_modules\\electron\\dist\\electron.exe main.js"
+  },
+  "author": "Zac McChesney",
+  "devDependencies": {
+    "electron": "^1.6.6",
+    "express": "^4.15.2"
+  },
+  "dependencies": {
+    
+  }
+}
